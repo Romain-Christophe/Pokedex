@@ -1,7 +1,13 @@
 
-export default function PokemonCard({pokemon}) {
+interface PokemonCardProps {
+  pokemon: {
+    name: string;
+    imgSrc?: string; 
+  };
+}
 
 
+export default function PokemonCard({ pokemon }: PokemonCardProps) {
   const pokemonList = [
     {
       name: "bulbasaur",
@@ -12,7 +18,6 @@ export default function PokemonCard({pokemon}) {
       name: "mew",
     },
   ];
-  
 
   return (
     <figure>
@@ -25,6 +30,7 @@ export default function PokemonCard({pokemon}) {
     </figure>
   );
 }
+
 
 
 
