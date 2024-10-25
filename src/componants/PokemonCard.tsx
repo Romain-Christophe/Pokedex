@@ -1,5 +1,5 @@
 
-export default function PokemonCard() {
+export default function PokemonCard({pokemon}) {
 
 
   const pokemonList = [
@@ -12,7 +12,7 @@ export default function PokemonCard() {
       name: "mew",
     },
   ];
-  const pokemon = pokemonList[1];
+  
 
   return (
     <figure>
