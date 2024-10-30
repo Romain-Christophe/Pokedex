@@ -36,32 +36,18 @@ function App() {
   return (
     <div>
       <h1>Pokémon</h1>
+      <nav>
+        {pokemons.map((pokemon, index) => (
+          <button
+            key={pokemon.name} // Utilise le nom du Pokémon comme clé unique
+            onClick={() => setPokemonIndex(index)} // Met à jour l'index du Pokémon affiché
+          >
+            {pokemon.name}
+          </button>
+        ))}
+      </nav>
       <p>Pokémon actuel : {pokemons[pokemonIndex].name}</p>{" "}
       {/* Affiche le nom du Pokémon actuel */}
-      {/* Bouton pour passer au Pokémon précédent */}
-      <button
-        onClick={() => {
-          // Diminue l'index si ce n'est pas le premier Pokémon
-          if (pokemonIndex > 0) {
-            setPokemonIndex(pokemonIndex - 1);
-          }
-        }}
-        disabled={pokemonIndex === 0} // Désactive le bouton si on est au premier Pokémon
-      >
-        Précédent
-      </button>
-      {/* Bouton pour passer au Pokémon suivant */}
-      <button
-        onClick={() => {
-          // Augmente l'index si ce n'est pas le dernier Pokémon
-          if (pokemonIndex < pokemons.length - 1) {
-            setPokemonIndex(pokemonIndex + 1);
-          }
-        }}
-        disabled={pokemonIndex === pokemons.length - 1} // Désactive le bouton si on est au dernier Pokémon
-      >
-        Suivant
-      </button>
       {/* Affiche la carte du Pokémon sélectionné en utilisant le composant PokemonCard */}
       <PokemonCard pokemon={pokemons[pokemonIndex]} />
     </div>
